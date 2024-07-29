@@ -17,7 +17,7 @@ async def getcycles():
 async def getcycledetail(id: int):
     bicycle = get_bicycles_by_id(id)
     if not bicycle:
-        raise HTTPException(status_code=404, detail="Bicycle not found")
+        raise HTTPException(status_code=404, detail="Bicycle Id not found")
     return bicycle
 
 # This endpoint returns the updated price in response
@@ -26,5 +26,5 @@ async def getcycledetail(id: int):
 async def updatecycleprice(id: int, newprice: PriceUpdate):
     bicycle = update_bicycle_price(id, newprice.price)
     if not bicycle:
-        raise HTTPException(status_code=404, detail="Bicycle not found")
+        raise HTTPException(status_code=404, detail="Bicycle Id not found")
     return bicycle
